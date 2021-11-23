@@ -1,21 +1,55 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+  <form>
+    <div class="form-group">
+      <label>Количество километров:</label>
+      <input name="kolvokm" class="form-control" type="number" min="0" [(ngModel)]="kolvokm" >
+    </div>
+    <div class="form-group">
+      <label>Возраст:</label>
+      <input name="age"  class="form-control" [(ngModel)]="age" type="number" min="0">
+    </div>
+    <div class="form-group">
+      <label>Вес багажа:</label>
+      <input name="vesbagaja" class="form-control" [(ngModel)]="vesbagaja" type="number" min="0">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-info col-sm-12" (click)="calculate()">Рассчитать</button>
+    </div>
+  </form>
+  <div>
+    <p>Предложения:</p>
+    <table class="table" *ngIf="aero.length">
+      <tr>
+        <td class="alert alert-info" colspan="2">Аэрофлот</td>
+      </tr>
+      <tr><td class="alert alert-secondary">Тариф</td><td class="alert alert-secondary">Цена(р.)</td></tr>
+      <tr *ngFor="let item of aero;let i = index">
+        <td >{{item.title}}: </td>
+        <td>{{(item.pred) ? item.pred : 'недоступен'}}</td>
+      </tr>
+      </table>
+      <table class="table" *ngIf="rjd.length">
+        <tr>
+          <td class="alert alert-info" colspan="2">РЖД</td>
+        </tr>
+        <tr><td class="alert alert-secondary">Тариф</td><td class="alert alert-secondary">Цена(р.)</td></tr>
+        <tr *ngFor="let item of rjd;let i = index">
+          <td >{{item.title}}: </td>
+          <td>{{(item.pred) ? item.pred : 'недоступен'}}</td>
+        </tr>
+        </table>
+   <!-- <div class="row" *ngFor="">
+          <div class="col-sm-12">
+           <p class="alert alert-info"><b>Title</b></p>
+            <div class="row" *ngFor="">
+              <div class="col-sm-12">
+                <p>Name: Price</p>
+              </div>
+            </div>
+          </div> 
+        </div>-->
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
-<router-outlet></router-outlet>
+</div></div>
